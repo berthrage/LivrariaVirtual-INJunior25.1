@@ -36,14 +36,41 @@
 }
 
 .logoLarge {
-    align-self: center;
-    background-image: url('../../assets/images/Logo-large.png');
-    transition: 0.5s;
     width: 120px;
     height: 78px;
+    position: relative; 
+    display: inline-block; 
 }
-.logoLarge:hover {
+
+.logoLarge::before, .logoLarge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    background-position: center;
+}
+.logoLarge::before {
+    background-image: url('../../assets/images/Logo-large.png');
+    opacity: 1; 
+    z-index: 1; 
+    transition: 0.9s;
+}
+.logoLarge::after {
     background-image: url('../../assets/images/Logo-large-hovered.png');
+    opacity: 0; 
+    z-index: 2; 
+    transition: 0.5s;
+}
+@media (hover: hover) {
+    .logoLarge:hover::before {
+        opacity: 0; 
+    }
+    .logoLarge:hover::after {
+        opacity: 1; 
+    }
 }
 
 .loginForm {

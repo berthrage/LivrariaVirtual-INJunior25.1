@@ -9,15 +9,10 @@
     font-size: 1rem;
     transition: 0.5s;
 }
-.button:hover {
-    padding: 20px, 30px;
-    background-color: var(--darker-blue);
-    color: white;
-}
-.button a {
-    color: #353535;
-}
-
-.button:hover a {
-    color: white;
+@media (hover: hover) {
+    .button:hover {
+        padding: 20px, 30px;
+        background-color: var(--darker-blue);
+        color: white;
+    }
 }

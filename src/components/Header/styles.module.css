@@ -10,17 +10,41 @@
 }
 
 .logo {
-    background-image: url('../../assets/icons/Logo.svg');
-    transition: 0.5s;
     width: 60px;
     height: 39px;
-}
-.logo:hover {
-    background-image: url('../../assets/icons/Logo-hovered.svg');
+    position: relative; 
+    display: inline-block; 
 }
 
-.logo img {
-    width: 60px;
+.logo::before, .logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    background-position: center;
+}
+.logo::before {
+    background-image: url('../../assets/icons/Logo.svg');
+    opacity: 1; 
+    z-index: 1; 
+    transition: 0.9s;
+}
+.logo::after {
+    background-image: url('../../assets/icons/Logo-hovered.svg');
+    opacity: 0; 
+    z-index: 2; 
+    transition: 0.5s;
+}
+@media (hover: hover) {
+    .logo:hover::before {
+        opacity: 0; 
+    }
+    .logo:hover::after {
+        opacity: 1; 
+    }
 }
 
 .menuSection {
