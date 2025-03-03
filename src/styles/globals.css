@@ -1,3 +1,4 @@
+/* John W. Comeau's CSS Reset */
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -46,6 +47,7 @@
   #root, #__next {
     isolation: isolate;
   }
+  /* ----------------------- */
 
   :root {
     --mainFont: 'Manrope', sans-serif;

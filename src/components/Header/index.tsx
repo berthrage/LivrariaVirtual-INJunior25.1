@@ -1,21 +1,26 @@
 import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
+import logoIcon from '../../assets/icons/Logo.png'
+import profileIcon from '../../assets/icons/Profile.png'
+import cartIcon from '../../assets/icons/Cart.png'
 
 export default function Header() {
     return (
         <>
             <header className={styles.header}>
-                <h1 className={styles.title}>
-                    MENU
-                </h1>
-                <ul className={styles.list}>
-                    <Link to={"/"}><li>Home</li></Link>
-                    <Link to={"/pokemon"}><li>Pokemon</li></Link>
-                    <Link to={"/contact"}><li>Contact Us</li></Link>
-                    <Link to={"/forms-test"}><li>Forms Test</li></Link>
-                </ul>
+                <div className={styles.logo}>
+                    <Link to={"/"}><img src={logoIcon}></img></Link>
+                </div>
+
+                <div className={styles.menuSection}>
+                    <div className={styles.profileIcon}>
+                        <img src={profileIcon}></img>
+                    </div>
+                    <div className={styles.cartIcon}>
+                        <img src={cartIcon}></img>
+                    </div>
+                </div>
             </header>
-            <hr></hr>
         </>
     )
 }
