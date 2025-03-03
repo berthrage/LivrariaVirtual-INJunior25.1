@@ -1,9 +1,12 @@
-// import styles from './styles.module.css'
+import styles from './styles.module.css'
+import banner from '../../assets/images/banner.png'
 
 export default function Home() {
     return(
         <> 
-            <h1>Livraria virtual</h1>
+            <section>
+                <img className={styles.banner} src={banner} alt="Banner"></img>
+            </section>
         </>
     )
 }
