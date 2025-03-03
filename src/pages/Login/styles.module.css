@@ -1,4 +1,102 @@
-.banner {
-    border-radius: 8px;
+.mainSection {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    padding: 0 5vw 0 0;
+}
+
+.cozySection {
+    width: 50vw;
+    height: 100vh;
+}
+
+.cozySection img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+}
+
+.loginSection {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+
+.loginSection p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.loginSection h1 {
+   font-size: 2rem;
+   font-weight: 600;
+   color: var(--darker-blue);
+}
+
+.logoLarge {
+    align-self: center;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--darker-blue);
+}
+
+.loginForm input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+.buttonsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#signInButton {
+    background-color: white;
+    color: var(--library-blue);
+    border: 1px solid var(--library-blue);
+}
+#signInButton:hover {
+    background-color: var(--darker-blue);
+    color: white;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .mainSection {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+    }
+
+    .cozySection {
+        width: 100vw;
+        height: 10vh;
+    }
+
+    .loginSection {
+        width: 100vw;
+        padding: 0 5vw;
+    }
+
+    .loginSection p {
+        font-size: 1rem;
+    }
+    
+    .loginSection h1 {
+       font-size: 1.2rem;
+    }
+    
 }

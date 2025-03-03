@@ -14,7 +14,7 @@ export default function Header() {
 
                 <div className={styles.menuSection}>
                     <div className={styles.profileIcon}>
-                        <img src={profileIcon}></img>
+                    <Link to={'/login'}><img src={profileIcon}></img></Link>
                     </div>
                     <div className={styles.cartIcon}>
                         <img src={cartIcon}></img>

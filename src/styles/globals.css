@@ -72,5 +72,8 @@
     padding: 2vw 3.5vw 2vw 3.5vw;
   }
 
+  input {
+    cursor: pointer;
+  }
 
 
