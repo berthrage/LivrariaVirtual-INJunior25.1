@@ -37,6 +37,13 @@
 
 .logoLarge {
     align-self: center;
+    background-image: url('../../assets/images/Logo-large.png');
+    transition: 0.5s;
+    width: 120px;
+    height: 78px;
+}
+.logoLarge:hover {
+    background-image: url('../../assets/images/Logo-large-hovered.png');
 }
 
 .loginForm {

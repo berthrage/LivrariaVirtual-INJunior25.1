@@ -8,9 +8,7 @@ export default function Header() {
     return (
         <>
             <header className={styles.header}>
-                <div className={styles.logo}>
-                    <Link to={"/"}><img src={logoIcon}></img></Link>
-                </div>
+                <Link to={"/"}><div className={styles.logo}></div></Link>
 
                 <div className={styles.menuSection}>
                     <div className={styles.profileIcon}>

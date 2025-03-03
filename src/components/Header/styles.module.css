@@ -9,6 +9,16 @@
     box-sizing: border-box;
 }
 
+.logo {
+    background-image: url('../../assets/icons/Logo.svg');
+    transition: 0.5s;
+    width: 60px;
+    height: 39px;
+}
+.logo:hover {
+    background-image: url('../../assets/icons/Logo-hovered.svg');
+}
+
 .logo img {
     width: 60px;
 }

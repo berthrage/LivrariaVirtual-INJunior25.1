@@ -45,9 +45,7 @@ export default function Login() {
                     <img src={cozyImg} alt="Cozy Bookstand"></img>
                 </section>
                 <section className={styles.loginSection}>
-                    <div className={styles.logoLarge}>
-                        <Link to={'/'}><img src={logoLarge}></img></Link>
-                    </div>
+                    <Link to={'/'}><div className={styles.logoLarge}></div></Link>
                     <div className={styles.welcomeText}>
                         <p>Bem vindo(a)!</p>
                         <h1>Entre na sua conta</h1>
