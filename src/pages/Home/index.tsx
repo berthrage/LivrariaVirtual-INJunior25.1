@@ -1,31 +1,16 @@
 import styles from './styles.module.css'
 import banner from '../../assets/images/banner.png'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Book from '../../types/Book';
-import api from '../../services/api';
 import GenreListShort from '../../components/GenreListShort';
+import useBooksStore from '../../stores/BooksStore';
 
 export default function Home() {
-    const [ books, setBooks ] = useState<Book[]>([]);
-    const [errorCode, setErrorCode] = useState<number | null>(null);
+    const { books, fetchBooks, errorCode } = useBooksStore();
 
     useEffect(() => {
-        if (books.length === 0) { 
-            api.get('')
-                .then(response => {
-                    console.log(response.data);
-                    setBooks(response.data); 
-                })
-                .catch(error => {
-                    console.error("Requisição da API falhou:", error.response);
-                    setErrorCode(error.response?.status || 500);
-                    setTimeout(() => {
-                        console.log("Tentando novamente...");
-                        setBooks([]); // Reset books to trigger the effect again
-                    }, 5000); 
-                });
-        }
-    }, [books]); 
+        fetchBooks();
+    }, [fetchBooks]);
 
     const getOneBookPerGenre = () => {
         const uniqueBooks: Book[] = [];
