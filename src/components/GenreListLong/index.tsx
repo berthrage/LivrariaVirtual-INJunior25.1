@@ -19,6 +19,11 @@ export default function GenreListLong(props: GenreListLongProps) {
     return(
         <>
             <section className={styles.genreListLong}>
+
+                <div className={styles.searchSection}>
+                    <input type="text" placeholder="Pesquisar por título"></input>
+                </div>
+
                 <div className={styles.topSection}>
                     <div className={styles.arrow}>
                         <Link to={"/"}>
@@ -28,8 +33,9 @@ export default function GenreListLong(props: GenreListLongProps) {
                     </div>
                     <h1>{props.genre}</h1>
                 </div>
+
                 <ul className={styles.books}>
-                    {booksByGenre.map(book => (
+                    {booksByGenre.map(book => props.search === '' ? (
                         <li key={book.id} className={styles.book}>
                             <div className={styles.bookCover}>
                                 <img src={book.capa} alt="Capa do livro"></img>
@@ -52,7 +58,7 @@ export default function GenreListLong(props: GenreListLongProps) {
                                 
                             </div>
                         </li>
-                    ))}
+                    ) : '')}
                 </ul>
             </section>
         </>
