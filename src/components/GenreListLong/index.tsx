@@ -3,6 +3,7 @@ import Book from '../../types/Book';
 import { Link } from 'react-router-dom';
 import arrow from '../../assets/icons/Arrow.png';
 import arrowHovered from '../../assets/icons/Arrow-hovered.png';
+import { useState } from 'react';
 
 interface GenreListLongProps {
     books: Book[];
@@ -11,31 +12,42 @@ interface GenreListLongProps {
 }
 
 export default function GenreListLong(props: GenreListLongProps) {
+    const [ searchTerm, setSearchTerm ] = useState('');
+
     const getBooksByGenre = (genre: string) => {
         return props.books.filter(book => book.genero === genre);
     };
     const booksByGenre = getBooksByGenre(props.genre? props.genre : '');
+
+    const filteredBooks = booksByGenre.filter(book =>
+        book.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.autor.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return(
         <>
             <section className={styles.genreListLong}>
 
                 <div className={styles.searchSection}>
-                    <input type="text" placeholder="Pesquisar por título"></input>
+                    <input 
+                        type="text" 
+                        placeholder="Pesquisar por título"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}></input>
                 </div>
-
+                
+                <Link to={"/"}>
                 <div className={styles.topSection}>
                     <div className={styles.arrow}>
-                        <Link to={"/"}>
-                            <img src={arrow} className={styles.arrowStatic}></img>
-                            <img src={arrowHovered} className={styles.arrowHovered}></img>
-                        </Link>
+                        <img src={arrow} className={styles.arrowStatic}></img>
+                        <img src={arrowHovered} className={styles.arrowHovered}></img>
                     </div>
                     <h1>{props.genre}</h1>
                 </div>
+                </Link>
 
                 <ul className={styles.books}>
-                    {booksByGenre.map(book => props.search === '' ? (
+                    {filteredBooks.map(book => (
                         <li key={book.id} className={styles.book}>
                             <div className={styles.bookCover}>
                                 <img src={book.capa} alt="Capa do livro"></img>
@@ -58,7 +70,7 @@ export default function GenreListLong(props: GenreListLongProps) {
                                 
                             </div>
                         </li>
-                    ) : '')}
+                    ))}
                 </ul>
             </section>
         </>
