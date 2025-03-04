@@ -37,11 +37,14 @@ export default function GenreListLong(props: GenreListLongProps) {
                             <div className={styles.bookInfo}>
                                 <div className={styles.titleAuthor}>
                                     <h2 
-                                        className={book.titulo.length < 28 ? styles.title : 
-                                        book.titulo.length < 40 ? styles.titleSmall : styles.titleSmallest
+                                        className={book.titulo.length < 26 ? styles.title : 
+                                        book.titulo.length < 32 ? styles.titleSmall : styles.titleSmallest
                                     }>{book.titulo}</h2>
                                     <div className={styles.priceSection}>
-                                        <h3>{book.autor}</h3>
+                                        <h3
+                                            className={book.autor.length < 19 ? styles.author : 
+                                            book.autor.length < 24 ? styles.authorSmall : styles.authorSmallest}
+                                        >{book.autor}</h3>
                                         <span>R$ {String(book.preco.toFixed(2)).replace('.', ',')}</span>
                                     </div>
                                     

@@ -22,6 +22,12 @@
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--library-orange);
+    transition: 0.5s ease-in-out;
+}
+@media (hover: hover) {
+    .topSection p:hover {
+        color: var(--library-blue);
+    }
 }
 
 .books {
@@ -36,6 +42,7 @@
     flex-direction: row;
     width: 320px;
     border: 1px solid #0909371A;
+    background-color: #f4f4ff;
     border-radius: 4px;
     padding: 10px;
     position: relative;
@@ -45,6 +52,7 @@
     width: 120px;
     height: 180px;
     flex-shrink: 0;
+    box-shadow: 0px 4px 8px 0px #6151dd41;
 }
 .bookCover img {
     object-fit: cover;
@@ -62,9 +70,20 @@
 
 
 .titleAuthor h2 {
-    font-size: 1.25rem;
     font-weight: 600;
     color: var(--darker-blue);
+}
+
+.title {
+    font-size: 1.25rem;
+}
+
+.titleSmall {
+    font-size: 1.15rem;
+}
+
+.titleSmallest {
+    font-size: 1.0rem;
 }
 
 .titleAuthor h3 {

@@ -126,10 +126,22 @@
 }
 
 .titleAuthor h3 {
-    /* font-size: clamp(0.6rem, 1vw, 1rem); */
     font-weight: 600;
     color: var(--gray-blue)
 }
+
+.author {
+    font-size: 1rem;
+}
+
+.authorSmall {
+    font-size: 0.8rem;
+}
+
+.authorSmallest {
+    font-size: 0.7rem;
+}
+
 
 .priceSection {
     display: flex;

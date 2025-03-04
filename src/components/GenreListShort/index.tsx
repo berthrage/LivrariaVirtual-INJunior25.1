@@ -28,7 +28,12 @@ export default function GenreListShort(props: GenreListShortProps) {
                             </div>
                             <div className={styles.bookInfo}>
                                 <div className={styles.titleAuthor}>
-                                    <h2>{book.titulo}</h2>
+                                    <h2
+                                        className={
+                                            book.titulo.length < 28 ? styles.title : 
+                                            book.titulo.length < 40 ? styles.titleSmall : styles.titleSmallest
+                                        }
+                                    >{book.titulo}</h2>
                                     <h3>{book.autor}</h3>
                                 </div>
                                 <div className={styles.priceSection}>
