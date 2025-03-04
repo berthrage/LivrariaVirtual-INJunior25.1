@@ -84,15 +84,16 @@
     color: var(--darker-blue);
 }
 
-.loginForm input {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 4px;
+.input {
     border: none;
 }
 
+.inputError {
+    border: 2px solid #ac053d;
+}
+
 .error {
-    color: rgb(87, 4, 32);
+    color: #570420;
     font-size: 1rem;
 }
 

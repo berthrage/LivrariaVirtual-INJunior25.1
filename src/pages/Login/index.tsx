@@ -1,6 +1,5 @@
 import styles from './styles.module.css'
 import cozyImg from '../../assets/images/cozy-bookstand.jpg'
-import logoLarge from '../../assets/images/Logo-large.png'
 import PrimaryButton from '../../components/PrimaryButton'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
@@ -44,15 +43,18 @@ export default function Login() {
                 <section className={styles.cozySection}>
                     <img src={cozyImg} alt="Cozy Bookstand"></img>
                 </section>
+
                 <section className={styles.loginSection}>
                     <Link to={'/'}><div className={styles.logoLarge}></div></Link>
                     <div className={styles.welcomeText}>
                         <p>Bem vindo(a)!</p>
                         <h1>Entre na sua conta</h1>
                     </div>
+
                     <form className={styles.loginForm}>
                         <label>E-mail</label>
                         <input 
+                            className={errors.email ? styles.inputError : styles.input}
                             type="text" 
                             placeholder="Digite aqui seu e-mail"
                             {...register('email')}>
@@ -62,6 +64,7 @@ export default function Login() {
 
                         <label>Senha</label>
                         <input 
+                            className={errors.password ? styles.inputError : styles.input}
                             type="password" 
                             placeholder="Digite aqui sua senha"
                             {...register('password')}>
@@ -82,6 +85,7 @@ export default function Login() {
                                 Cadastre-se
                         </PrimaryButton>
                     </div>
+
                 </section>
             </section>
         </>
