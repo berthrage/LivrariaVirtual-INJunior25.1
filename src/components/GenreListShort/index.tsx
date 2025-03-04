@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import Book from '../../types/Book';
+import { Link } from 'react-router-dom';
 
 interface GenreListShortProps {
     books: Book[];
@@ -17,7 +18,7 @@ export default function GenreListShort(props: GenreListShortProps) {
             <section className={styles.genreListShort}>
                 <div className={styles.topSection}>
                     <h1>{props.genre}</h1>
-                    <p>Ver mais</p>
+                    <Link to={`/genero/${props.genre}`}><p>Ver mais</p></Link>
                 </div>
                 <ul className={styles.books}>
                     {booksByGenre.map(book => (

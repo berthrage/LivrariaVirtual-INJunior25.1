@@ -7,13 +7,25 @@ import GenreListShort from '../../components/GenreListShort';
 
 export default function Home() {
     const [ books, setBooks ] = useState<Book[]>([]);
+    const [errorCode, setErrorCode] = useState<number | null>(null);
 
     useEffect(() => {
-        api.get('').then(response => {
-            console.log(response.data);
-            setBooks(response.data);
-        });
-    }, []);
+        if (books.length === 0) { 
+            api.get('')
+                .then(response => {
+                    console.log(response.data);
+                    setBooks(response.data); 
+                })
+                .catch(error => {
+                    console.error("Requisição da API falhou:", error.response);
+                    setErrorCode(error.response?.status || 500);
+                    setTimeout(() => {
+                        console.log("Tentando novamente...");
+                        setBooks([]); // Reset books to trigger the effect again
+                    }, 5000); 
+                });
+        }
+    }, [books]); 
 
     const getOneBookPerGenre = () => {
         const uniqueBooks: Book[] = [];
@@ -33,8 +45,12 @@ export default function Home() {
         <> 
             <section className={styles.homeSection}>
                 <img className={styles.banner} src={banner} alt="Banner"></img>
-                {uniqueBooks.map(book => 
-                    <GenreListShort key={book.id} books={books} genre={book.genero}></GenreListShort>
+                {books.length === 0 ? (
+                    <h1>{errorCode ? `Erro ${errorCode} ao carregar livros` : 'Carregando livros...'}</h1>
+                ) : (
+                    uniqueBooks.map(book =>
+                        <GenreListShort key={book.id} books={books} genre={book.genero}></GenreListShort>
+                    )
                 )}
             </section>
         </>
