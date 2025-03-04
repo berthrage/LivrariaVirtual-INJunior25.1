@@ -26,8 +26,9 @@
 
 .books {
     display: flex;
+    flex-wrap: wrap; 
     flex-direction: row;
-    gap: 30px;
+    gap: 20px;
 }
 
 .book {
@@ -43,6 +44,7 @@
 .bookCover {
     width: 120px;
     height: 180px;
+    flex-shrink: 0;
 }
 .bookCover img {
     object-fit: cover;
