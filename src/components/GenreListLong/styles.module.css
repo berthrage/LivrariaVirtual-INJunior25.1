@@ -4,28 +4,6 @@
     gap: 20px;
 }
 
-.searchSection {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.searchSection input{
-    width: 800px;
-    height: 50px;
-    align-self: center;
-    padding: 10px 40px; 
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: 0.5s ease-in-out;
-    background-color: #f4f4ff;
-    background-image: url('../../assets/icons/Search.png');
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 20px;
-}
-
 .topSection {
     display: flex;
     flex-direction: row;

@@ -8,6 +8,7 @@ export default function GenrePage() {
     const { books, fetchBooks, errorCode } = useBooksStore();
     const { genero } = useParams<string>();
     const [ genreFound, setGenreFound ] = useState(false);
+    const [ searchTerm, setSearchTerm ] = useState('');
 
     useEffect(() => {
         fetchBooks();
@@ -23,6 +24,15 @@ export default function GenrePage() {
     return(
         <>
             <section className={styles.genrePageSection}>
+
+                <div className={styles.searchSection}>
+                    <input 
+                        type="text" 
+                        placeholder="Pesquisar por título"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}></input>
+                </div>
+
                 {books.length === 0 ? (
                     <h1>{errorCode ? `Erro ${errorCode} ao carregar livros` : 'Carregando livros...'}</h1>
                 ) : genreFound ? (
@@ -30,7 +40,7 @@ export default function GenrePage() {
                         <GenreListLong 
                             books={books}
                             genre={genero}
-                            search=''>
+                            search={searchTerm}>             
                         </GenreListLong>
                     </>
                 ) : (

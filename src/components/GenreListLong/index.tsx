@@ -3,7 +3,6 @@ import Book from '../../types/Book';
 import { Link } from 'react-router-dom';
 import arrow from '../../assets/icons/Arrow.png';
 import arrowHovered from '../../assets/icons/Arrow-hovered.png';
-import { useState } from 'react';
 
 interface GenreListLongProps {
     books: Book[];
@@ -12,30 +11,20 @@ interface GenreListLongProps {
 }
 
 export default function GenreListLong(props: GenreListLongProps) {
-    const [ searchTerm, setSearchTerm ] = useState('');
-
     const getBooksByGenre = (genre: string) => {
         return props.books.filter(book => book.genero === genre);
     };
     const booksByGenre = getBooksByGenre(props.genre? props.genre : '');
 
     const filteredBooks = booksByGenre.filter(book =>
-        book.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        book.autor.toLowerCase().includes(searchTerm.toLowerCase())
+        book.titulo.toLowerCase().includes(props.search.toLowerCase()) ||
+        book.autor.toLowerCase().includes(props.search.toLowerCase())
     );
 
     return(
         <>
             <section className={styles.genreListLong}>
 
-                <div className={styles.searchSection}>
-                    <input 
-                        type="text" 
-                        placeholder="Pesquisar por título"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}></input>
-                </div>
-                
                 <Link to={"/"}>
                 <div className={styles.topSection}>
                     <div className={styles.arrow}>
