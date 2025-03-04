@@ -1,3 +1,9 @@
+.homeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
 .banner {
     border-radius: 8px;
     object-fit: cover;

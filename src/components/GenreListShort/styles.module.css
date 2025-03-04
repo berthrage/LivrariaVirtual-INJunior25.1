@@ -1,0 +1,86 @@
+.genreListShort {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5vw 0 0;
+}
+
+.topSection h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--darker-blue);
+}
+
+.topSection p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--library-orange);
+}
+
+.books {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.book {
+    display: flex;
+    flex-direction: row;
+    width: 320px;
+    border: 1px solid #0909371A;
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+}
+
+.bookCover {
+    width: 120px;
+    height: 180px;
+}
+.bookCover img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 40%;
+    margin-left: 10px;
+}
+
+
+.titleAuthor h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--darker-blue);
+}
+
+.titleAuthor h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-blue);
+}
+
+.priceSection {
+    position: absolute;
+    bottom: 10px;
+}
+
+.priceSection span {
+    font-weight: 700;
+    color: var(--library-blue);
+    font-size: 1.5rem;
+}
+
+
+
