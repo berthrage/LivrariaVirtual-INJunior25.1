@@ -1,0 +1,156 @@
+.genreListLong {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.topSection h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--darker-blue);
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.arrow img {
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+}
+.arrowStatic {
+    opacity: 1; /* Initially visible */
+}
+.arrowHovered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hidden */
+    z-index: 1;
+}
+@media (hover: hover) {
+    .arrow:hover .arrowHovered {
+        opacity: 1; /* Show hovered image */
+    }
+
+    .arrow:hover .arrowStatic {
+        opacity: 0; /* Hide static image */
+    }
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    gap: 20px;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid #0909371A;
+    border-radius: 4px;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    background-color: #f4f4ff;
+    gap: 20px;
+    align-items: center;
+}
+
+.bookCover {
+    width: 200px;
+    height: 300px;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 8px 0px #6151dd41;
+}
+.bookCover img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.titleAuthor {
+    width: 100%;  
+    display: flex;  
+    flex-direction: column; 
+    overflow: hidden; 
+    min-width: 0;     
+    gap: 0px;
+}
+
+.titleAuthor h2, .titleAuthor h3 {
+    white-space: nowrap;   
+    overflow: hidden;      
+    text-overflow: ellipsis;
+    min-width: 0;          
+    display: block;        
+    text-align: left;     
+    transform-origin: left center; 
+    flex-grow: 1;          
+}
+
+.titleAuthor h2 {
+    /* font-size: clamp(0.8rem, max(1rem, 90%), 1.25rem); */
+    font-weight: 600;
+    color: var(--darker-blue);
+}
+
+.title {
+    font-size: 1.25rem; 
+}
+
+.titleSmall {
+    font-size: 1rem; 
+}
+
+.titleSmallest {
+    font-size: 0.8rem; 
+}
+
+.titleAuthor h3 {
+    /* font-size: clamp(0.6rem, 1vw, 1rem); */
+    font-weight: 600;
+    color: var(--gray-blue)
+}
+
+.priceSection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between; 
+    width: 100%;
+    min-width: 0; /* Allows shrinking of children */
+}
+
+.priceSection span {
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--library-blue);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1352px) {
+    .books {
+        justify-content: center;
+    }
+}
+
+

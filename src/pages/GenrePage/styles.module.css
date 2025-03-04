@@ -1,0 +1,7 @@
+.genrePageSection {
+    max-width: 1320px; 
+    width: 100%;     
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;   
+}
