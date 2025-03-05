@@ -1,8 +1,8 @@
 import styles from './styles.module.css';
 import Book from '../../types/Book';
 import { Link } from 'react-router-dom';
-import arrow from '../../assets/icons/Arrow.png';
-import arrowHovered from '../../assets/icons/Arrow-hovered.png';
+import BackArrowText from '../BackArrowText';
+
 
 interface GenreListLongProps {
     books: Book[];
@@ -25,15 +25,7 @@ export default function GenreListLong(props: GenreListLongProps) {
         <>
             <section className={styles.genreListLong}>
 
-                <Link to={"/"}>
-                <div className={styles.topSection}>
-                    <div className={styles.arrow}>
-                        <img src={arrow} className={styles.arrowStatic}></img>
-                        <img src={arrowHovered} className={styles.arrowHovered}></img>
-                    </div>
-                    <h1>{props.genre}</h1>
-                </div>
-                </Link>
+                <BackArrowText text={props.genre ? props.genre : ''}></BackArrowText>
 
                 <ul className={styles.books}>
                     {filteredBooks.map(book => (

@@ -4,55 +4,6 @@
     gap: 20px;
 }
 
-.topSection {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-}
-
-.topSection h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--darker-blue);
-    transition: 0.5s ease-in-out;
-}
-@media (hover: hover) {
-    .topSection:hover h1 {
-        color: var(--library-orange);
-    }
-}
-
-.arrow {
-    width: 20px;
-    height: 20px;
-    position: relative;
-}
-.arrow img {
-    width: 100%;
-    height: 100%;
-    transition: 0.5s ease-in-out;
-}
-.arrowStatic {
-    opacity: 1; /* Initially visible */
-}
-.arrowHovered {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0; /* Initially hidden */
-    z-index: 1;
-}
-@media (hover: hover) {
-    .topSection:hover .arrowHovered {
-        opacity: 1; /* Show hovered image */
-    }
-
-    .topSection:hover .arrowStatic {
-        opacity: 0; /* Hide static image */
-    }
-}
-
 .books {
     display: flex;
     flex-wrap: wrap; 

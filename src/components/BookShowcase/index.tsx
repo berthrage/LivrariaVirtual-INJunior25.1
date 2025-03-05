@@ -1,10 +1,8 @@
 import styles from "./styles.module.css";
 import Book from "../../types/Book";
-import { Link } from "react-router-dom";
-import arrow from '../../assets/icons/Arrow.png';
-import arrowHovered from '../../assets/icons/Arrow-hovered.png';
 import PrimaryButton from "../PrimaryButton";
 import useCartStore from "../../stores/CartStore";
+import BackArrowText from "../BackArrowText";
 
 interface BookShowcaseProps {
     book: Book;
@@ -17,15 +15,7 @@ export default function BookShowcase(props: BookShowcaseProps) {
         <>
             <section className={styles.bookShowcase}>
 
-                <Link to={"/"}>
-                <div className={styles.topSection}>
-                    <div className={styles.arrow}>
-                        <img src={arrow} className={styles.arrowStatic}></img>
-                        <img src={arrowHovered} className={styles.arrowHovered}></img>
-                    </div>
-                    <h1>Detalhes do Livro</h1>
-                </div>
-                </Link>
+                <BackArrowText text='Detalhes do livro'></BackArrowText>
 
                 <div className={styles.book}>
                     <div className={styles.bookCoverBox}>
