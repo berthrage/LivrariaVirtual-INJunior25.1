@@ -37,7 +37,7 @@ export default function GenreListLong(props: GenreListLongProps) {
 
                 <ul className={styles.books}>
                     {filteredBooks.map(book => (
-                        <li key={book.id} className={styles.book}>
+                        <Link to={`/livro/${book.id}`}><li key={book.id} className={styles.book}>
                             <div className={styles.bookCover}>
                                 <img src={book.capa} alt="Capa do livro"></img>
                             </div>
@@ -58,7 +58,7 @@ export default function GenreListLong(props: GenreListLongProps) {
                                 </div>
                                 
                             </div>
-                        </li>
+                        </li></Link>
                     ))}
                 </ul>
             </section>

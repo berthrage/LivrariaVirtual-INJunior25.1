@@ -22,7 +22,7 @@ export default function GenreListShort(props: GenreListShortProps) {
                 </div>
                 <ul className={styles.books}>
                     {booksByGenre.map(book => (
-                        <li key={book.id} className={styles.book}>
+                        <Link to={`/livro/${book.id}`}><li key={book.id} className={styles.book}>
                             <div className={styles.bookCover}>
                                 <img src={book.capa} alt="Capa do livro"></img>
                             </div>
@@ -40,7 +40,7 @@ export default function GenreListShort(props: GenreListShortProps) {
                                     <span>R$ {String(book.preco.toFixed(2)).replace('.', ',')}</span>
                                 </div>
                             </div>
-                        </li>
+                        </li></Link>
                     ))}
                 </ul>
             </section>
