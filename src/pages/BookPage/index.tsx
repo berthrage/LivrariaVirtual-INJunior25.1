@@ -4,15 +4,21 @@ import { useEffect, useState } from 'react';
 import useBooksStore from '../../stores/BooksStore';
 import Book from '../../types/Book';
 import BookShowcase from '../../components/BookShowcase';
+import useCartStore from '../../stores/CartStore';
 
 export default function BookPage() {
     const { books, fetchBooks, errorCode } = useBooksStore();
+    const { loadCart } = useCartStore();
     const { livroId } = useParams<string>();
     const [ book, setBook ] = useState<Book>();
-
+    
     useEffect(() => {
         fetchBooks();
     }, [fetchBooks]);
+
+    useEffect(() => {
+        loadCart();
+    }, []);
 
     useEffect(() => {
         if (books.length > 0) {

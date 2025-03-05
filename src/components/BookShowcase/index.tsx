@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import arrow from '../../assets/icons/Arrow.png';
 import arrowHovered from '../../assets/icons/Arrow-hovered.png';
 import PrimaryButton from "../PrimaryButton";
+import useCartStore from "../../stores/CartStore";
 
 interface BookShowcaseProps {
     book: Book;
 }
 
 export default function BookShowcase(props: BookShowcaseProps) {
+    const { addToCart } = useCartStore();
+
     return (
         <>
             <section className={styles.bookShowcase}>
@@ -42,7 +45,8 @@ export default function BookShowcase(props: BookShowcaseProps) {
                         </div>
                         <div className={styles.priceSection}>
                             <PrimaryButton
-                                id={styles.button}>
+                                id={styles.button}
+                                onClick={() => addToCart(props.book)}>
                                 <span>R$ {String(props.book.preco.toFixed(2)).replace('.', ',')}</span>
                                 <p>Adicionar ao carrinho</p>
                             </PrimaryButton>

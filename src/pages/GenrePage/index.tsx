@@ -3,16 +3,22 @@ import styles from './styles.module.css';
 import { useEffect, useState } from 'react';
 import useBooksStore from '../../stores/BooksStore';
 import GenreListLong from '../../components/GenreListLong';
+import useCartStore from '../../stores/CartStore';
 
 export default function GenrePage() {
     const { books, fetchBooks, errorCode } = useBooksStore();
     const { genero } = useParams<string>();
     const [ genreFound, setGenreFound ] = useState(false);
     const [ searchTerm, setSearchTerm ] = useState('');
+    const { loadCart } = useCartStore();
 
     useEffect(() => {
         fetchBooks();
     }, [fetchBooks]);
+
+    useEffect(() => {
+        loadCart();
+    }, []);
 
     useEffect(() => {
         if (books.length > 0) {

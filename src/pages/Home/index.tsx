@@ -4,13 +4,19 @@ import { useEffect } from 'react';
 import Book from '../../types/Book';
 import GenreListShort from '../../components/GenreListShort';
 import useBooksStore from '../../stores/BooksStore';
+import useCartStore from '../../stores/CartStore';
 
 export default function Home() {
     const { books, fetchBooks, errorCode } = useBooksStore();
+    const { loadCart } = useCartStore();
 
     useEffect(() => {
         fetchBooks();
     }, [fetchBooks]);
+
+    useEffect(() => {
+        loadCart();
+    }, []);
 
     const getOneBookPerGenre = () => {
         const uniqueBooks: Book[] = [];

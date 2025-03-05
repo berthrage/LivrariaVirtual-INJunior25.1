@@ -6,8 +6,11 @@ import cartIcon from '../../assets/icons/Cart.png'
 import cartIconHovered from '../../assets/icons/Cart-hovered.png'
 import logo from '../../assets/icons/Logo.png'
 import logoHovered from '../../assets/icons/Logo-hovered.svg'
+import useCartStore from '../../stores/CartStore'
 
 export default function Header() {
+    const { cart } = useCartStore();
+
     return (
         <>
             <header className={styles.header}>
@@ -26,13 +29,23 @@ export default function Header() {
                             <img src={profileIconHovered} className={styles.profileIconHovered}></img>
                         </Link>
                     </div>
-                    
-                    <div className={styles.cartIcon}>
-                        <Link to={'/'}>
-                            <img src={cartIcon} className={styles.cartIconStatic}></img>
-                            <img src={cartIconHovered} className={styles.cartIconHovered}></img>
-                        </Link>
-                    </div>
+                    <Link to={'/'}>
+                        <div className={styles.cartIconBox}>
+                            <div className={styles.cartIcon}>
+                                <img src={cartIcon} className={styles.cartIconStatic}></img>
+                                <img src={cartIconHovered} className={styles.cartIconHovered}></img>
+                            </div>
+                            {cart.length > 0 ? (
+                                <>
+                                    <div className={styles.cartQttIcon}>
+                                        <p>{cart.length}</p>
+                                    </div>
+                                </>
+                            ) : ''}
+                            
+                        </div>
+                    </Link>
+
                 </div>
             </header>
         </>
