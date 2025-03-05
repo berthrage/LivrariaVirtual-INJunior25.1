@@ -4,6 +4,7 @@ import RootLayout from "./RootLayout";
 import Login from "./pages/Login";
 import GenrePage from "./pages/GenrePage";
 import BookPage from "./pages/BookPage";
+import CartPage from "./pages/CartPage";
 
 const router = createBrowserRouter(
     [
@@ -22,6 +23,10 @@ const router = createBrowserRouter(
                 {
                     path: "/livro/:livroId",
                     element: <BookPage></BookPage>
+                },
+                {
+                    path: "/cart",
+                    element: <CartPage></CartPage>
                 },
                 
                 // {

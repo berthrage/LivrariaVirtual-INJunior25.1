@@ -22,7 +22,7 @@ export default function ImageTransition(props: ImageTransitionProps) {
         <> 
             
                 
-                <div {...props} className={styles.imgBox} style={dynamicStyle} id={props.id}>
+                <div className={styles.imgBox} style={dynamicStyle} id={props.id}>
                     {props.linkTo ? (
                         <Link to={props.linkTo}>
                             <img src={props.firstImg} alt={props.firstAlt} className={styles.imgStatic}></img>

@@ -33,7 +33,7 @@ export default function Header() {
                         firstAlt='profileIcon' secondAlt='profileIconHovered'>
                     </ImageTransition>
 
-                    <Link to={'/'}>
+                    <Link to={'/cart'}>
                         <div className={styles.cartIconBox}>
                             <div className={styles.cartIcon}>
                                 <img src={cartIcon} className={styles.cartIconStatic}></img>

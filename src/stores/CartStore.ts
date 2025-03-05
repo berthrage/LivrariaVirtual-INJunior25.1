@@ -4,9 +4,13 @@ import CartProduct from "../types/CartProduct";
 
 interface CartStore {
     cart: CartProduct[];
+    totalPrice: number;
     addToCart: (book: Book) => void;
+    removeFromCart: (productId: number) => void;
+    validateCart: (books: Book[]) => void;
     loadCart: () => void;
     clearCart: () => void;
+    calculateTotalPrice: () => void;
 }
 
 const useCartStore = create<CartStore>((set: any, get: any) => {
@@ -15,6 +19,7 @@ const useCartStore = create<CartStore>((set: any, get: any) => {
     
     return ({
         cart: initialCart,
+        totalPrice: 0,
         
         addToCart: (book: Book) => {
             if (get().cart.length < 99) {
@@ -34,11 +39,26 @@ const useCartStore = create<CartStore>((set: any, get: any) => {
         },
 
         removeFromCart: (productId: number) => {
-                let newCart: CartProduct[] = [...get().cart];
-                newCart = newCart.filter(product => product.productId !== productId);
-                set({ cart: newCart });
-                localStorage.setItem("cart", JSON.stringify(newCart));
-                console.log(get().cart);
+            let newCart: CartProduct[] = [...get().cart];
+            newCart = newCart.filter(product => product.productId !== productId);
+            for(let i = 0; i < newCart.length; i++) {
+                newCart[i].productId = i;
+            }
+            set({ cart: newCart });
+            localStorage.setItem("cart", JSON.stringify(newCart));
+            console.log(get().cart);
+        },
+
+        validateCart: (books: Book[]) => {
+            let newCart: CartProduct[] = [...get().cart];
+            newCart = newCart.filter(
+              (cartProduct) =>
+                books.some((book) => book.id === cartProduct.book.id) 
+            );
+
+            set({ cart: newCart });
+            localStorage.setItem("cart", JSON.stringify(newCart));
+            console.log(get().cart);
         },
 
         loadCart: () => {
@@ -52,6 +72,14 @@ const useCartStore = create<CartStore>((set: any, get: any) => {
             const newCart: CartProduct[] = [];
             set({cart: newCart});
             localStorage.setItem("cart", JSON.stringify(newCart));
+        },
+
+        calculateTotalPrice: () => {
+            let price = 0;
+            for (let product of get().cart) {
+                price += product.book.preco;
+            }
+            set({totalPrice: price});
         }
 
     })

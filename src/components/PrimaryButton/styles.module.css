@@ -1,7 +1,6 @@
 .buttonContainer {
-    --width-button: 400px;
-    width: var(--width-button);
     max-width: 100%;
+    flex-shrink: 1;
 }
 .button {
     background-color: var(--library-orange);
@@ -17,6 +16,13 @@
 }
 @media (hover: hover) {
     .button:hover {
+        padding: 20px, 30px;
+        background-color: var(--darker-blue);
+        color: white;
+    }
+}
+@media (hover: none) {
+    .button:active {
         padding: 20px, 30px;
         background-color: var(--darker-blue);
         color: white;
