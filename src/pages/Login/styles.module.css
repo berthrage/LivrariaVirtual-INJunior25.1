@@ -107,6 +107,12 @@
     border: none;
 }
 
+@media (max-height: 760px) {
+    .loginSection {
+        gap: 30px;
+    }
+}
+
 @media (max-width: 768px) {
     .mainSection {
         flex-direction: column;
@@ -122,6 +128,7 @@
     .loginSection {
         width: 100vw;
         padding: 0 5vw;
+        align-items: center;
     }
 
     .loginSection p {
