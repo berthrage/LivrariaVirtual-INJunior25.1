@@ -34,7 +34,7 @@
     position: absolute;
     top: -10px;
     left: -20px;
-    
+    transition: 0.5s ease-in-out;
 }
 .productOrder h1 {
     font-weight: 500;
@@ -120,6 +120,38 @@
 .menuSection {
     display: flex;
     max-width: 100%;
+}
+
+@media (max-width: 412px) {
+    .book {
+        flex-direction: column;
+    }
+
+    .menuSection {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    #removeButton {
+        align-self: center;
+    }
+
+    .priceSection {
+        position: relative;
+        bottom: 0px;
+        display: flex;
+        justify-self: flex-start;
+    }
+}
+
+@media (max-width: 660px) {
+    .productOrder {
+        top: -5px;
+        left: -5px;
+    }
 }
 
 @media (max-width: 1070px) {

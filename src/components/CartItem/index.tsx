@@ -53,8 +53,8 @@ export default function CartItem(props: CartItemProps) {
                         </PrimaryButton>
 
                         <div className={styles.priceSection}>
-                                    <span>R$ {String(props.cartProduct.book.preco.toFixed(2)).replace('.', ',')}</span>
-                                </div>
+                            <span>R$ {String(props.cartProduct.book.preco.toFixed(2)).replace('.', ',')}</span>
+                        </div>
                     </div>  
                 </div>
                 
