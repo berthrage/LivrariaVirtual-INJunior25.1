@@ -3,10 +3,11 @@ import cozyImg from '../../assets/images/cozy-bookstand.jpg'
 import logoLarge from '../../assets/images/Logo-large.png';
 import logoLargeHovered from '../../assets/images/Logo-large-hovered.png';
 import PrimaryButton from '../../components/PrimaryButton'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import ImageTransition from '../../components/ImageTransition';
 
 const userSchema = z.object({
     email: z.string().nonempty('E-mail deve ser inserido.').refine(
@@ -48,12 +49,14 @@ export default function Login() {
 
                 <section className={styles.loginSection}>
                     
-                        <div className={styles.logoLarge}>
-                        <Link to={'/'}>
-                            <img src={logoLarge} alt="Logo" className={styles.logoStatic}></img>
-                            <img src={logoLargeHovered} alt="Logo Hovered" className={styles.logoHovered}></img>
-                        </Link>
-                        </div>
+                    <ImageTransition
+                        linkTo='/'
+                        firstImg={logoLarge}
+                        secondImg={logoLargeHovered}
+                        width={120} height={78}
+                        firstAlt='logoLarge' secondAlt='logoLargeHovered'
+                        id={styles.logoLarge}>
+                    </ImageTransition>
                     
                     <div className={styles.welcomeText}>
                         <p>Bem vindo(a)!</p>

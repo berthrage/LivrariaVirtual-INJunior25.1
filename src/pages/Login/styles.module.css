@@ -35,35 +35,10 @@
    color: var(--darker-blue);
 }
 
-.logoLarge {
-    width: 120px;
-    height: 78px;
-    align-self: center;
-    position: relative;
-}
-.logoLarge img {
-    width: 100%;
-    height: 100%;
-    transition: 0.5s ease-in-out;
-}
-.logoStatic {
-    opacity: 1; /* Initially visible */
-}
-.logoHovered {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0; /* Initially hidden */
-    z-index: 1;
-}
-@media (hover: hover) {
-    .logoLarge:hover .logoHovered {
-        opacity: 1; /* Show hovered image */
-    }
 
-    .logoLarge:hover .logoStatic {
-        opacity: 0; /* Hide static image */
-    }
+#logoLarge {
+    display: flex;
+    align-self: center;
 }
 
 .loginForm {

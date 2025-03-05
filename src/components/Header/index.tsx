@@ -7,6 +7,7 @@ import cartIconHovered from '../../assets/icons/Cart-hovered.png'
 import logo from '../../assets/icons/Logo.png'
 import logoHovered from '../../assets/icons/Logo-hovered.svg'
 import useCartStore from '../../stores/CartStore'
+import ImageTransition from '../ImageTransition'
 
 export default function Header() {
     const { cart } = useCartStore();
@@ -14,21 +15,24 @@ export default function Header() {
     return (
         <>
             <header className={styles.header}>
-                <div className={styles.logo}>
-                    <Link to={"/"}>
-                        <img src={logo} className={styles.logoStatic}></img>
-                        <img src={logoHovered} className={styles.logoHovered}></img>
-                    </Link>
-                </div>
+                <ImageTransition
+                    linkTo='/'
+                    firstImg={logo}
+                    secondImg={logoHovered}
+                    width={60} height={39}
+                    firstAlt='logo' secondAlt='logoHovered'>
+                </ImageTransition>
                 
 
                 <div className={styles.menuSection}>
-                    <div className={styles.profileIcon}>
-                        <Link to={'/login'}>
-                            <img src={profileIcon} className={styles.profileIconStatic}></img>
-                            <img src={profileIconHovered} className={styles.profileIconHovered}></img>
-                        </Link>
-                    </div>
+                    <ImageTransition
+                        linkTo='/login'
+                        firstImg={profileIcon}
+                        secondImg={profileIconHovered}
+                        width={50} height={50}
+                        firstAlt='profileIcon' secondAlt='profileIconHovered'>
+                    </ImageTransition>
+
                     <Link to={'/'}>
                         <div className={styles.cartIconBox}>
                             <div className={styles.cartIcon}>
