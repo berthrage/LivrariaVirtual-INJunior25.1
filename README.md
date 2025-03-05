@@ -1,7 +1,7 @@
 # :books: LivrariaVirtual-INJunior25.1
 E-Commerce de Livraria Virtual  
 Single Page Application desenvolvida em React/TypeScript  
-<img src="public/preview1.png" alt="Logo" style="width: 400px;"/>   <img src="public/preview2.png" alt="Logo" style="width: 400px;"/>    <img src="public/preview3.png" alt="Logo" style="width: 100px;"/>
+<img src="public/preview1.png" alt="Logo" style="width: 300px;"/>   <img src="public/preview2.png" alt="Logo" style="width: 300px;"/>    <img src="public/preview3.png" alt="Logo" style="width: 100px;"/>
 
 ## Features
 - 100% funcional (Validação Login, API Fetching com global states, Páginas, Carrinho)
