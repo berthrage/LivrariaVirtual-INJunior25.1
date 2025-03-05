@@ -66,3 +66,20 @@
 .items {
     width: 70%;
 }
+
+@media (max-width: 871px) {
+    .cartBox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkout {
+        width: 100%;
+        align-items: center;
+    }
+
+    .items {
+        width: 100%;
+        align-items: center;
+    }
+}

@@ -18,7 +18,7 @@ export default function CartItem(props: CartItemProps) {
                 <div className={styles.book}>
                     <Link to={`/livro/${props.cartProduct.book.id}`}>
                         <div className={styles.bookInfoBox}>
-                            
+
                             <div className={styles.productOrder}>
                                 <h1>{props.cartProduct.productId + 1}</h1>
                             </div>
@@ -47,7 +47,8 @@ export default function CartItem(props: CartItemProps) {
                         <PrimaryButton
                             onClick={()=> removeFromCart(props.cartProduct.productId)}
                             id={styles.removeButton}
-                            width={100}>
+                            width={100}
+                            overrideMediaQuery={true}>
                                 Remover
                         </PrimaryButton>
 

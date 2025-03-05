@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import BackArrowText from '../../components/BackArrowText';
 import useBooksStore from '../../stores/BooksStore';
 import useCartStore from '../../stores/CartStore';
