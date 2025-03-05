@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import GenrePage from "./pages/GenrePage";
 import BookPage from "./pages/BookPage";
 import CartPage from "./pages/CartPage";
+import PageErrorBoundary from "./error-boundary/PageErrorBoundary";
 
 const router = createBrowserRouter(
     [
@@ -18,24 +19,22 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/genero/:genero",
-                    element: <GenrePage></GenrePage>
+                    element: <GenrePage></GenrePage>,
+                    errorElement: <PageErrorBoundary></PageErrorBoundary>,
                 },
                 {
                     path: "/livro/:livroId",
-                    element: <BookPage></BookPage>
+                    element: <BookPage></BookPage>,
+                    errorElement: <PageErrorBoundary></PageErrorBoundary>,
                 },
                 {
                     path: "/cart",
                     element: <CartPage></CartPage>
                 },
-                
-                // {
-                //     path: "/pokemon/:pokemonName",
-                //     element: <PokemonPage></PokemonPage>,
-                //     loader: PokemonLoader,
-                //     errorElement: <PokemonBoundary></PokemonBoundary>
-                // },
-                
+                {
+                    path: "*", 
+                    element: <PageErrorBoundary></PageErrorBoundary>,
+                }
             ]
         },
         {
