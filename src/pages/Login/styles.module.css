@@ -76,10 +76,19 @@
     color: var(--library-blue);
     border: 1px solid var(--library-blue);
 }
-#signInButton:hover {
-    background-color: var(--darker-blue);
-    color: white;
-    border: none;
+@media (hover: hover) {
+    #signInButton:hover {
+        background-color: var(--darker-blue);
+        color: white;
+        border: none;
+    }
+}
+@media (hover: none) {
+    #signInButton:active {
+        background-color: var(--darker-blue);
+        color: white;
+        border: none;
+    }
 }
 
 @media (max-height: 760px) {
