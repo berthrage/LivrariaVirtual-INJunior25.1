@@ -17,18 +17,28 @@ const useCartStore = create<CartStore>((set: any, get: any) => {
         cart: initialCart,
         
         addToCart: (book: Book) => {
-            const newCart: CartProduct[] = [...get().cart];
-            const newCartProduct: CartProduct = {
-                book: book,
-                productId: 0,
+            if (get().cart.length < 99) {
+                const newCart: CartProduct[] = [...get().cart];
+                const newCartProduct: CartProduct = {
+                    book: book,
+                    productId: 0,
+                }
+                newCart.unshift(newCartProduct);
+                for(let i = 0; i < newCart.length; i++) {
+                    newCart[i].productId = i;
+                }
+                set({cart: newCart});
+                localStorage.setItem("cart", JSON.stringify(newCart));
+                console.log(get().cart);
             }
-            newCart.unshift(newCartProduct);
-            for(let i = 0; i < newCart.length; i++) {
-                newCart[i].productId = i;
-            }
-            set({cart: newCart});
-            localStorage.setItem("cart", JSON.stringify(newCart));
-            console.log(get().cart);
+        },
+
+        removeFromCart: (productId: number) => {
+                let newCart: CartProduct[] = [...get().cart];
+                newCart = newCart.filter(product => product.productId !== productId);
+                set({ cart: newCart });
+                localStorage.setItem("cart", JSON.stringify(newCart));
+                console.log(get().cart);
         },
 
         loadCart: () => {
