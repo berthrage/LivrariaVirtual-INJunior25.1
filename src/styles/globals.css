@@ -55,6 +55,8 @@
     --library-blue: #6251DD;
     --darker-blue: #090937;
     --library-orange: #EF6B4A;
+    --width-main-padding: 3.5vw;
+    --height-main-padding: 2vw;
   }
 
   html, body {
@@ -68,7 +70,7 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding: 2vw 3.5vw 2vw 3.5vw;
+    padding: var(--height-main-padding) var(--width-main-padding) var(--height-main-padding) var(--width-main-padding);
   }
 
 input {
