@@ -69,6 +69,12 @@ export default function Login() {
                             className={errors.email ? styles.inputError : styles.input}
                             type="text" 
                             placeholder="Digite aqui seu e-mail"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    e.preventDefault(); 
+                                    handleSubmit(EnterUser)();
+                                }
+                            }}
                             {...register('email')}>
                         </input>
                         {errors.email && <span className={styles.error}>{errors.email.message}</span>}
@@ -79,6 +85,12 @@ export default function Login() {
                             className={errors.password ? styles.inputError : styles.input}
                             type="password" 
                             placeholder="Digite aqui sua senha"
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    e.preventDefault(); 
+                                    handleSubmit(EnterUser)();
+                                }
+                            }}
                             {...register('password')}>
                         </input>
                         {errors.password && <span className={styles.error}>{errors.password.message}</span>}
