@@ -25,7 +25,7 @@ Single Page Application desenvolvida em React/TypeScript
 ## Instalação
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/yourusername/INFeed-INJunior25.1.git
+   git clone https://github.com/berthrage/LivrariaVirtual-INJunior25.1-INJunior25.1/
 2. Abra o terminal na pasta do repositório e execute:
    ```sh
    npm install
